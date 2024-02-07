@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@100;300;400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+     --LimeGreen: hsl(163, 72%, 41%);
+--BrightRed: hsl(356, 69%, 56%);
+--Facebook: hsl(208, 92%, 53%);
+--Twitter: hsl(203, 89%, 53%);
+--Instagram: linear-gradient(90deg, rgba(237,250,13,1) 19%, rgba(255,0,159,1) 76%);
+--YouTube: hsl(348, 97%, 39%);
+--Toggle: hsl(230, 22%, 74%);
+/*LIGHT*/
+--BG: hsl(0, 0%, 100%);
+--VeryPaleBlue: hsl(225, 100%, 98%);
+--CardBG: hsl(0, 0%, 87%);
+--CardBGhover: hsl(204, 78%, 91%);
+
+--Text1: hsl(228, 12%, 44%);
+--Text2: hsl(228, 7%, 26%);
+}
+
+body.darkmode {
+    --Toggle:  linear-gradient(90deg, rgb(68, 123, 252) 22%, rgba(33, 248, 241, 0.491) 68%);
+    --BG: hsl(230, 17%, 14%);
+    --VeryPaleBlue: hsl(232, 19%, 15%);
+    --CardBG: hsl(228, 28%, 20%);
+    --CardBGhover: hsl(231, 24%, 37%);
+
+    --Text1:hsl(228, 34%, 66%);
+    --Text2: hsl(0, 0%, 100%);
+}
+
+body{
+    background: var(--BG);
+    color: var(--Text2);
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    transition: 1.5s;
+    }
+
+ul{
+    list-style: none;
+}
+
+.header{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.month{
+   
+    position: relative;
+   
+    width: 8rem;   
+}
+
+.month h3{
+    cursor: pointer;
+}
+
+.months{
+    position: absolute;
+    left: 4rem;
+    background-color: var(--CardBG);
+    box-shadow: 2px 2px 4px black;
+    z-index: 10;
+    padding: 1rem;
+    border-radius: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+.month:hover .months{
+    display: block;
+    
+}
+
+.item:hover{
+    color: var(--Text1);
+}
+
+.content_toggle{
+    display: flex;  
+    align-items: center;    
+    justify-content: space-between;    
+}
+
+.toggle{
+    width: 70px;
+    height: 30px;
+    background: var(--Toggle);
+    border-radius: 70px;
+    position: relative;    
+    
+}
+
+.ball{
+    top: 3px;
+    left: 3px;
+    width: 25px;
+    height: 25px;
+    background-color: var(--BG);
+    border-radius: 100px;
+    cursor: pointer;
+    position: absolute;
+    transition: left 0.5s;      
+}
+
+
+/*MOVER BOLITA */
+
+.ball-move{   
+    
+        left: 41px;   
+}
+
+
+
+
+.followers{
+    display: grid;
+    gap: 1rem;
+}
+
+.follower{
+    background-color: var(--CardBG);
+    padding: 1rem;
+    border-radius: 9px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1.5rem;
+    overflow: hidden;
+    transition: background-color 0.4s, transform 0.3s ;
+    cursor: pointer;
+}
+
+.follower:hover{
+    background-color: var(--CardBGhover);
+    transform: translateY(-5px);
+}
+
+.follower::before{
+    content: "";
+    height: 6px;
+    width: 100%;
+    
+    position: absolute;    
+    top: 0;
+    left: 0;
+}
+
+.follower:nth-child(1)::before {
+    background-color: var(--Facebook);
+}
+
+.follower:nth-child(2)::before {
+    background-color: var(--Twitter);
+}
+
+.follower:nth-child(3)::before {
+    background: var(--Instagram);
+}
+
+.follower:nth-child(4)::before {
+    background-color: var(--YouTube);
+}
+
+
+
+
+.follower__head{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    color: var(--Text1);
+}
+
+.followers_total p:nth-child(1){
+   
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.followers_total p:nth-child(2){
+  
+    letter-spacing: 3px;
+    color: var(--Text1);
+}
+
+.followers_today{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.red_text{
+    color: var(--BrightRed);
+}
+
+.green_text{
+    color: var(--LimeGreen);
+}
+
+.container_overview h2{
+    margin: 2rem 0;
+}
+
+
+
+.overviews, .followers {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.overview{
+    background-color: var(--CardBG);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: grid;
+    gap: 2rem;
+    transition: background-color 0.4s, transform 0.3s ;
+cursor: pointer;
+}
+
+.overview_top, .overview_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overview_bottom_percent{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.overview_top p {
+    color: var(--Text1);
+    font-weight: bold;    
+}
+
+.overview_bottom > p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.overview:hover{
+background-color: var(--CardBGhover);
+transform: translateY(-5px);
+}
